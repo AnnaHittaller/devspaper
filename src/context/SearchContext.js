@@ -166,8 +166,11 @@ export default function SearchContextProvider({ children }) {
 			// //console.log("data.page", data.page)
 			// //console.log("data.nbHits", data.nbHits)
 
+
 			// +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++  commented this line out in order to make the code between line 179 to 195 to work
-			dispatch({
+
+			// +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++  commented this line out in order to make the code between line 179 to 195 to work (edit: the code is back again in order to make the filters work, but no marking)
+		dispatch({
 				type: ACTIONS.SET_POSTS,
 				payload: {
 					hits: data.hits,

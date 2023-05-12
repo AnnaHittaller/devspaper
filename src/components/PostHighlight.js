@@ -33,10 +33,12 @@ console.log("hits",hits)
 																href={post.url ? post.url : post.story_url}
 																target="_blank"
 																rel="noreferrer">
-																{/* replaced the post.title after the question mark ? with the div below */}
-																{post.title ? post.title : post.story_title}  
-															    {post.title ? <div dangerouslySetInnerHTML={{ __html: post.title }} />  : post.story_title}   
-																{/* {post.comment_text && parse(post.comment_text)} */}
+
+																{/* replaced the post.title after the question mark ? with the div below (removed the replacment , now it like before without marking*/}
+																{post.title ? post.title : post.story_title}
+																{/* {post.title ? <div dangerouslySetInnerHTML={{ __html: post.title }} />  : post.story_title}  */}
+																{post.comment_text && parse(post.comment_text)}
+
 															</a>
 														</span>
 														{/* line 34, I made the link klickable ,and to be opened in a blank page(this also in line 30), the link underline is removed in App.css on line 60 by adding text-decoration: none, just like the original website */}

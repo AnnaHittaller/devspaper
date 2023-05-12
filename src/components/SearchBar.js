@@ -41,6 +41,7 @@ function SearchBar() {
 				<form onSubmit={handelSubmit}>
 					<span className="search-span">Search: </span>
 					<input
+						placeholder="search by Title, author or url... "
 						// autofocus
 						ref={refFocus}
 						type="text"
@@ -51,6 +52,7 @@ function SearchBar() {
 				</form>
 			</>
 		);
+
 }
 
 export default SearchBar;
