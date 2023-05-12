@@ -37,18 +37,20 @@ function SearchBar() {
     }
 
     return (
-		<>
-        <form onSubmit={handelSubmit}>
-			<span className="search-span">Search: </span>
-			<input
-                // autofocus
-                ref={refFocus}
-                type="text" value={home_Query}
-                onChange={(e) => setHome_Query(e.target.value)}
-                onKeyDown={handleSearchFunction}/>
-        </form>
-		</>
-	);
+			<>
+				<form onSubmit={handelSubmit}>
+					<span className="search-span">Search: </span>
+					<input
+						// autofocus
+						ref={refFocus}
+						type="text"
+						value={home_Query}
+						onChange={(e) => setHome_Query(e.target.value)}
+						onKeyDown={handleSearchFunction}
+					/>
+				</form>
+			</>
+		);
 }
 
 export default SearchBar;
