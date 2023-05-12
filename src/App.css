@@ -11,13 +11,14 @@
 }
 
 .header {
-  background-color: #ff6600;
+  background-color: #587eaa;
   font-family: Verdana, Geneva, sans-serif;
   font-size: 10pt;
   padding: 0 1rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  color: white;
 }
 
 .logo-div {
@@ -29,8 +30,11 @@
 }
 
 .header .logo {
-  border: 1px solid white;
   margin: 0 .5rem;
+}
+
+.header img {
+  width: 250px;
 }
 
 .header h1 {
@@ -47,6 +51,7 @@
   cursor: pointer;
   font-weight: bold;
 }
+
 nav {
   display: flex;
   align-items: center;
@@ -86,18 +91,28 @@ h2.no-result {
   margin: 5rem auto;
 }
 
+.post-list {
+  display: flex;
+  flex-direction: column;
+  gap: .5rem;
+}
+
 .post-div {
   display: flex;
   align-items: center;
   gap: .5rem;
   margin-bottom: .5rem;
+  box-shadow: 0 0 5px 2px #587eaa77;
+  padding: .5rem;
+  border-radius: 6px;
 }
 
 .number-upvote {
   align-self: flex-start;
   display: flex;
   align-items: flex-start;
-  color: #828282;
+  color: #587eaa;
+  font-weight: 800;
 }
 
 .arrow-up {
@@ -117,10 +132,10 @@ h2.no-result {
   display: flex;
   align-items: center;
   justify-content: center;
-  border: 2px solid #ff6600;
+  border: 2px solid #587eaa;
   border-radius: 3px;
   background: transparent;
-  color: #ff6600;
+  color: #587eaa;
   cursor: pointer;
 }
 
@@ -150,10 +165,10 @@ h2.no-result {
 }
 
             /*this is for the Markup <em> tags in search context.js (not working as expected)*/
-.post-div em {
+/* .post-div em {
   background: #ff0!important;
   color: #000!important;
   font-style: normal;
   font-weight: 700;
-} 
+}  */
 

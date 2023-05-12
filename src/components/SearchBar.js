@@ -1,20 +1,15 @@
-import { Routes, Route, NavLink, Link, useNavigate,useLocation  } from "react-router-dom";
+import { useNavigate,useLocation  } from "react-router-dom";
 import { SearchContext } from "../context/SearchContext";
 import { useContext,useState,useEffect, useRef } from "react";
 
 function SearchBar() {
 
     const { handleSearch,query_reset } = useContext(SearchContext);
-	//we will have to create a QueryContext, and set the query with [query, setQuery] from the search bar so that we can filter the results on the search page?????
-    //maybe, I'm not sure, this is just a note
     const [home_Query, setHome_Query]= useState(query_reset)
 
     const navigate = useNavigate();
     const location = useLocation();
     const refFocus = useRef();
-
-
-    // console.log("home_Query",home_Query)
 
     const handleSearchFunction = (e) => {
         if(e.key === 'Enter') {
@@ -32,7 +27,7 @@ function SearchBar() {
 
 
 
-    const  handelSubmit = (e) => {       //this will take us to the search page directly to avoid the disappearing search text when hitting 
+    const  handelSubmit = (e) => {       
         e.preventDefault();
     }
 
@@ -41,7 +36,7 @@ function SearchBar() {
 				<form onSubmit={handelSubmit}>
 					<span className="search-span">Search: </span>
 					<input
-						placeholder="search by Title, author or url... "
+						placeholder="Search by title, author or url... "
 						// autofocus
 						ref={refFocus}
 						type="text"

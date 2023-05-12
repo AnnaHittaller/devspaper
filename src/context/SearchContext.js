@@ -1,5 +1,5 @@
 import { createContext, useEffect, useReducer } from "react";
-import { useNavigate } from "react-router";
+
 
 const ACTIONS = {
 	SET_LOADING: "SET_LOADING",
@@ -7,8 +7,7 @@ const ACTIONS = {
 	SET_SEARCH: "SET_SEARCH",
 	NEXT_PAGE: "NEXT_PAGE",
 	PREV_PAGE: "PREV_PAGE",
-	GO_TO_FIRST_PAGE: "GO_TO_FIRST_PAGE",		//added go to first page , when it been clicked on the logo
-
+	GO_TO_FIRST_PAGE: "GO_TO_FIRST_PAGE",	
 	ALL_FILTER: "ALL_FILTER",
 	STORIES_FILTER: "STORIES_FILTER",
 	COMMENTS_FILTER: "COMMENTS_FILTER",
@@ -16,10 +15,6 @@ const ACTIONS = {
 	DATE_FILTER: "DATE_FILTER",
 	RESET_PAGE: "RESET_PAGE",
 	LAST_PAGE: "LAST_PAGE",
-	// LAST_24_H_FILTER: "LAST_24_H_FILTER",
-	// PAST_WEEK_FILTER: "PAST_WEEK_FILTER",
-	// PAST_MONTH_FILTER: "PAST_MONTH_FILTER",
-	// PAST_YEAR_FILTER: "PAST_YEAR_FILTER",
 };
 
 const reducer = (state, action) => {
@@ -78,7 +73,6 @@ const reducer = (state, action) => {
 				};
 
 				case ACTIONS.RESET_PAGE:												//working RESET_PAGE
-
 					return {
 					...state,
 					page: 0,
@@ -93,7 +87,6 @@ const reducer = (state, action) => {
 				};
 
 				case ACTIONS.DATE_FILTER:													//working Date filter
-
 					return {
 						...state,
 						sort: "Date",
@@ -101,7 +94,6 @@ const reducer = (state, action) => {
 					}
 
 				case ACTIONS.STORIES_FILTER:												//working STORIES_FILTER filter
-
 					return {
 						...state,
 						sectiony: 'Stories',
@@ -109,7 +101,6 @@ const reducer = (state, action) => {
 				};
 
 				case ACTIONS.COMMENTS_FILTER:												//working COMMENTS_FILTER filter
-
 					return {
 						...state,
 						sectiony: 'Comments',
@@ -117,7 +108,6 @@ const reducer = (state, action) => {
 				};
 
 				case ACTIONS.ALL_FILTER:												//working ALL_FILTER filter
-
 					return {
 						...state,
 						sectiony: 'All',
@@ -160,16 +150,6 @@ export default function SearchContextProvider({ children }) {
 			}
 			const data = await response.json();
 
-            // console.log("data",data)
-			// //console.log("data.hits",data.hits)
-			// //console.log("data.nbPages", data.nbPages)
-			// //console.log("data.page", data.page)
-			// //console.log("data.nbHits", data.nbHits)
-
-
-			// +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++  commented this line out in order to make the code between line 179 to 195 to work
-
-			// +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++  commented this line out in order to make the code between line 179 to 195 to work (edit: the code is back again in order to make the filters work, but no marking)
 		dispatch({
 				type: ACTIONS.SET_POSTS,
 				payload: {
@@ -178,25 +158,7 @@ export default function SearchContextProvider({ children }) {
 				},
 			});
 
-// +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ for marking up the searched words in yellow, but it still not work as expected,some words missing or the marking is still appearing after deleting the search bar
-		// let updatedHits = data.hits;
-		// const searchTerm = state.query;
-		// if (searchTerm !== "") {
-		// 	const regex = new RegExp(searchTerm, "gi");
-		// 	updatedHits = data.hits.map((hit) => {
-		// 	const updatedTitle = hit.title.replace(regex, "<em>$&</em>");
-		// 	return { ...hit, title: updatedTitle };
-		// 	});
-		// }
 
-		// dispatch({
-		// 	type: ACTIONS.SET_POSTS,
-		// 	payload: {
-		// 	hits: updatedHits,
-		// 	nbPages: data.nbPages,
-		// 	},
-		// });
-//   ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 		} catch (error) {
 		console.log(error.message);
 		}
@@ -229,22 +191,18 @@ export default function SearchContextProvider({ children }) {
 
 	const handlePopularity = () => {					//WORKING popularity filter
 		dispatch({ type: ACTIONS.POPULARITY_FILTER });
-		
 	};
 
 	const handleDate = () => {							//WORKING Date filter
-		dispatch({ type: ACTIONS.DATE_FILTER });
-		
+		dispatch({ type: ACTIONS.DATE_FILTER });	
 	};
 
 	const handleStories = () => {						//WORKING STORIES filter
 		dispatch({ type: ACTIONS.STORIES_FILTER });
-		
 	};
 
 	const handleComments = () => {						//WORKING Comments filter
 		dispatch({ type: ACTIONS.COMMENTS_FILTER });
-		
 	};
 
 	const handleAll = () => {						//WORKING ALL filter
